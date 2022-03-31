@@ -1,0 +1,12 @@
+/*
+    Il faut savoir que le moteur (interpréteur) V8 est synchrone, il exécute une tâche par tâche, Node lui est conçu de manier a être asynchrone.
+
+    Comment ça fonctionne ?
+        1. Le serveur (donc Node) reçois une requête
+
+        2. Node va envoyer cette tâche au moteur V8, le moteur met cette tâche dans sa file d'attente pour l'exécuter dés que possible,
+
+        3. Une fois cette tâche terminé le V8 va répondre à Node et lui return la réponse qui correspond à la requête
+
+        Et comme Node est non bloquant il peut reçevoir un nombre infinie de requête...
+*/
