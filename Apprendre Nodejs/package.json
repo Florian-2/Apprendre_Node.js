@@ -1,0 +1,23 @@
+{
+  "name": "apprendre-nodejs",
+  "version": "1.0.0",
+  "description": "Apprendre Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Florian-2/Apprendre_Node.js.git"
+  },
+  "author": "Florian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Florian-2/Apprendre_Node.js/issues"
+  },
+  "homepage": "https://github.com/Florian-2/Apprendre_Node.js#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}

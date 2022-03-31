@@ -3,6 +3,9 @@ const util = require("util");
 console.log(util.types.isDate(new Date())); // true
 console.log(util.types.isDate(21)); // false
 
+// Paquet installer via npm
+const colors = require("colors");
+console.log("Salut toi !".rainbow);
 
 // Module perso
 const myModule = require("./myModule1");

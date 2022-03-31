@@ -1,0 +1,16 @@
+Les évènement c'est quoi ?
+
+    Un évènement est juste quelque chose qui se produit, par exemple,
+        - Un fichier ouvert est un évènement
+        - Un utilisateur envoie une requête HTTP est un évènement
+
+
+Les évènements systèmes ?
+
+    Les évènements systèmes proviennent de l'OS et sont écoutés par libuv, une librairie écrite en C/C++.
+    Ex d'event: fermer un fichier est un évènement systèmes.
+
+
+Les évènements personnalisés ?
+
+    Node.js offre un module "core" (une librairie JavaScript) permettant de créer des évènements et de créer des gestionnaires d'évènements via Node.js.
