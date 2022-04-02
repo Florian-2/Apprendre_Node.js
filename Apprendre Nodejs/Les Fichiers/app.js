@@ -108,9 +108,70 @@ fs.writeFile("./docs.txt", "Ceci remplacera le contenu du fichier", (err) => {
 /* ------------------------ Supprimer un fichier ------------------------ 
 
     Si le fichier n'existe pas on aura une erreur: "no such file or directory, unlink: <path>"
-*/
+
 
 fs.unlink('./docs.txt', (err) => {
     if (err) throw err;
     console.log('Le fichier a été supprimé.');
 });
+*/
+
+
+
+
+/* ------------------------ Créer un dossier ------------------------ 
+
+    Si le dossier parent n'existe pas ET qu'on souhaite créer des sous dossier à l'intérieur de celui-ci il faut ajouter l'option: { recursive: true } sinon on aura une erreur comme quoi le dossier parent n'existe pas.
+
+
+// Créer un dossier
+fs.mkdir("./MonDossier", (err) => {
+    if (err) throw err;
+    console.log("Dossier créer !");
+})
+
+// Créer des sous dossier
+fs.mkdir("./MonDossier/dossier1", { recursive: true }, (err) => {
+    if (err) throw err;
+    console.log("Sous dossier créer !");
+
+    fs.appendFile("./MonDossier/dossier1/main.py", "counter: int = 0", (err) => {
+        if (err) throw err;
+        console.log("Fichier créer !");
+    })
+})
+*/
+
+
+
+
+/* ------------------------ Supprimer un dossier ------------------------ 
+
+    Si le dossier n'existe pas on aura une erreur: "no such file or directory, rmdir: <path>"
+
+
+fs.rmdir("./MonDossier/dossier2", (err) => {
+    if(err) throw err;
+    console.log('Dossier supprimé !');
+})
+*/
+
+
+
+
+
+/* ------------------------ Lire un dossier ------------------------ */
+
+fs.readdir("./MonDossier", (err, files) => {
+    if (err) throw err;
+    console.log(files); // [ 'dossier1', 'test.txt', 'test2.txt' ]
+
+    // Boucle sur chaque éléments contenu dans le dossier et nous indique la taille et la nature de l'élément
+    for (const fileOrDir of files) {
+        const stats = fs.statSync(`./monDossier/${fileOrDir}`);
+        console.log({
+            size: stats.size,
+            type: stats.isFile() ? "Fichier" : "Dossier"
+        });
+    }
+})
