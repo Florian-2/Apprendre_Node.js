@@ -86,6 +86,7 @@ fs.appendFile("./index.html", HTML, (err) => {
 
 
 
+
 /* ------------------------ (writeFile) Ecrire dans un fichier ------------------------ 
 
     Si le fichier n'existe pas il va le créer.
@@ -105,6 +106,7 @@ fs.writeFile("./docs.txt", "Ceci remplacera le contenu du fichier", (err) => {
 
 
 
+
 /* ------------------------ Supprimer un fichier ------------------------ 
 
     Si le fichier n'existe pas on aura une erreur: "no such file or directory, unlink: <path>"
@@ -115,6 +117,42 @@ fs.unlink('./docs.txt', (err) => {
     console.log('Le fichier a été supprimé.');
 });
 */
+
+
+
+
+
+/* ------------------------ Créer un dossier ------------------------ 
+
+fs.copyFile("./MonDossier/test.txt", "./MonDossier/test2.txt", (err) => {
+    if (err) throw err;
+    console.log("Copie du fichier terminé !");
+})
+*/
+
+
+
+
+
+/* ------------------------ Information sur le fichier/dossier ------------------------ 
+
+    https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#class-fsstats
+
+
+// Asynchrone
+fs.stat("./MonDossier/test.txt", (err, stats) => {
+    if (err) throw err;
+    console.log(stats);
+
+    const dataFormat = Intl.DateTimeFormat("fr", { dateStyle: "full" });
+    console.log(dataFormat.format(stats.ctimeMs)); // samedi 2 avril 2022
+})
+
+// Synchrone
+const stats = fs.statSync("./MonDossier/test.txt");
+console.log(stats);
+*/
+
 
 
 
@@ -145,6 +183,7 @@ fs.mkdir("./MonDossier/dossier1", { recursive: true }, (err) => {
 
 
 
+
 /* ------------------------ Supprimer un dossier ------------------------ 
 
     Si le dossier n'existe pas on aura une erreur: "no such file or directory, rmdir: <path>"
@@ -160,13 +199,12 @@ fs.rmdir("./MonDossier/dossier2", (err) => {
 
 
 
-/* ------------------------ Lire un dossier ------------------------ */
+/* ------------------------ Lire un dossier ------------------------ 
 
 fs.readdir("./MonDossier", (err, files) => {
     if (err) throw err;
     console.log(files); // [ 'dossier1', 'test.txt', 'test2.txt' ]
 
-    // Boucle sur chaque éléments contenu dans le dossier et nous indique la taille et la nature de l'élément
     for (const fileOrDir of files) {
         const stats = fs.statSync(`./monDossier/${fileOrDir}`);
         console.log({
@@ -175,3 +213,4 @@ fs.readdir("./MonDossier", (err, files) => {
         });
     }
 })
+*/
