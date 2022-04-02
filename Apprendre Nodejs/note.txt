@@ -4,9 +4,12 @@
     Comment ça fonctionne ?
         1. Le serveur (donc Node) reçois une requête
 
-        2. Node va envoyer cette tâche au moteur V8, le moteur met cette tâche dans sa file d'attente pour l'exécuter dés que possible,
+        2. Node va envoyer cette tâche au moteur V8, le moteur met cette tâche dans sa file d'attente pour l'exécuter dés que possible
 
         3. Une fois cette tâche terminé le V8 va répondre à Node et lui return la réponse qui correspond à la requête
 
         Et comme Node est non bloquant il peut reçevoir un nombre infinie de requête...
 */
+
+Node c'est quoi ?: https://www.youtube.com/watch?v=97rRv9xy2iw
+Event loop: https://www.youtube.com/watch?v=g25LIAIlcbE&t=366s
