@@ -1,0 +1,32 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Template avec Pug
+        style.
+            .text-xl {
+                font-size: 25px
+            }
+            .bold {
+                font-weight: bold;
+            }
+    body 
+        h1(class="title") Ceci est un titre
+        h1.title Ceci est un titre
+        h1(class="title") Ceci est un titre
+
+        div
+            p(class=["text-xl", "bold"]) Un paragraphe avec plusieurs classe
+            p(class="bold").
+                Du texte sur plusieurs lignes grâce à un point (.) sit amet consectetur adipisicing elit. Facere rerum nobis commodi consequuntur consequatur, iusto adipisci amet voluptatem architecto. Reprehenderit, tempora vitae. Ab quam eligendi dolores est corporis repellendus dolorum.
+
+        input(
+            type="text"
+            placeholder="Florian"
+        )
+
+        script.
+            const input = document.querySelector("input");
+            console.log(input)
