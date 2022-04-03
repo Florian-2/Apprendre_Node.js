@@ -3,7 +3,6 @@ const http = require("http");
 
 const server = http.createServer((req, res) => {    
     const url = req.url;
-    console.log(url);
     let statusCode = 200;
     let file;
     
