@@ -4,7 +4,7 @@
   "description": "Apprendre Node.js",
   "main": "./Express/app.js",
   "scripts": {
-    "start": "node Express/app.js",
+    "start": "nodemon Express/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
