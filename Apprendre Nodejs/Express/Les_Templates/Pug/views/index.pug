@@ -7,26 +7,53 @@ html(lang="fr")
         title Template avec Pug
         style.
             .text-xl {
-                font-size: 25px
+                font-size: 25px;
             }
             .bold {
                 font-weight: bold;
             }
+            .product {
+                background-color: #858EB3;
+            }
     body 
         h1(class="title") Ceci est un titre
         h1.title Ceci est un titre
-        h1(class="title") Ceci est un titre
 
         div
-            p(class=["text-xl", "bold"]) Un paragraphe avec plusieurs classe
+            p(class=["text-xl", "bold"]) Un paragraphe avec plusieurs classes
             p(class="bold").
-                Du texte sur plusieurs lignes grâce à un point (.) sit amet consectetur adipisicing elit. Facere rerum nobis commodi consequuntur consequatur, iusto adipisci amet voluptatem architecto. Reprehenderit, tempora vitae. Ab quam eligendi dolores est corporis repellendus dolorum.
+                Du texte sur plusieurs lignes grâce à un point (.) sit amet consectetur adipisicing elit. Facere rerum nobis commodi consequuntur consequatur, iusto adipisci amet voluptatem architecto.Reprehenderit, tempora vitae. Ab quam eligendi dolores est corporis repellendus dolorum.
 
-        input(
-            type="text"
-            placeholder="Florian"
-        )
+        hr
+        
+        h2 Interpolation
+
+        p #{ name }
+        p=name
+        p #{ "Florian".split("") }
+
+        - const counter = 0;
+        h3 Count #{ counter }
+
+        h2 Condition
+
+        if isAuthenticated
+            button Déconnexion
+
+        case isAdmin 
+            when true
+                span Vous êtes admin !
+            when false 
+                span Vous n'êtes pas admin !
+            default 
+                span Aucune info disponible sur vos droit.
+
+        h2 Boucle
+
+        each product in products
+            div(class="product")
+                p #{ product.name }
+                p Prix #{ product.price }
 
         script.
-            const input = document.querySelector("input");
-            console.log(input)
+            console.log("script");        
