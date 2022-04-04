@@ -8,8 +8,8 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
     res.render("index", { 
         name: "Florian", 
+        tag: "<span>Escape</span>",
         isAuthenticated: true, 
-        isAdmin: false,
         products: [
             { name: "Iphone 12", price: 950 }, 
             { name: "Xiaomi MI 9", price: 450 }, 

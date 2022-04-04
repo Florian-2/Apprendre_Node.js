@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engine Template EJS</title>
+    <style>
+        .product {
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>EJS est beacoup plus proche de l'HTML que Pug</h1>
+
+    <%- include('topbar') %>
+
+    <h2>Interpolation</h2>
+
+    <h3>name: <%= name %> </h3>
+    <h3>Escape: <%= tag %> </h3>
+    <h3>No escape: <%- tag %> </h3>
+
+    <hr>
+
+    <h2>Condition</h2>
+
+    <% if (isAuthenticated) { %>
+        <p>Vous êtes connecté</p>
+    <% } else { %>
+        <p>Vous n'êtes pas connecté</p>
+    <% } %>
+
+    <hr>
+
+    <h2>Boucle</h2>
+
+    <% products.forEach((product) => { %>
+        <div class="product">
+            <p>Produit: <%= product.name %></p>
+            <p>Prix: <%= product.price %>€</p>
+        </div>
+    <% }) %>
+
 </body>
 </html>
