@@ -22,6 +22,7 @@
 */
 
 const express = require('express');
+const path = require('path');
 const app = express();
 
 /* Exemple de base
@@ -43,7 +44,7 @@ app.use(monMiddleware);
 */
 
 
-// Cas concret
+/* Cas concret
 const getCurrentUser = (req, res, next) => {
     req.user = {
         id: 1,
@@ -69,5 +70,18 @@ app.get('/me', (req, res) => {
     // console.log(req.me); // Florian
     res.json({ user: req.user });
 });
+*/
+
+
+
+/* Middleware Static
+
+    - express.static(<...path>) = Retourne des fichiers, cette fonction peut prendre un ou plusieurs paramètres via un tableau, cette fonction retourne un middleware.
+
+    A chaque fois que l'on va essayer de récupérer un fichier (image, video, css, pdf etc...), le middleware "static" fourni par express va allez voir le dossier qu'on lui a donner (ici "public" et "public/css") et chercher le fichier demandé puis nous le retourner via "res.sendFile()".
+
+    A savoir, cette fonction sait qu'on veut récupérer un fichier grâce au point et l'extension (".png" par exemple)
+*/
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(3000);
