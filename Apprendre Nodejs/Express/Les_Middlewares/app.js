@@ -74,6 +74,7 @@ app.get('/me', (req, res) => {
 
 
 
+
 /* Middleware Static
 
     - express.static(<...path>) = Retourne des fichiers, cette fonction peut prendre un ou plusieurs paramètres via un tableau, cette fonction retourne un middleware.
@@ -81,7 +82,27 @@ app.get('/me', (req, res) => {
     A chaque fois que l'on va essayer de récupérer un fichier (image, video, css, pdf etc...), le middleware "static" fourni par express va allez voir le dossier qu'on lui a donner (ici "public" et "public/css") et chercher le fichier demandé puis nous le retourner via "res.sendFile()".
 
     A savoir, cette fonction sait qu'on veut récupérer un fichier grâce au point et l'extension (".png" par exemple)
-*/
+
 app.use(express.static(path.join(__dirname, "public")));
+*/
+
+
+
+
+/* Les Middleware json et urlencoder
+
+    Pour les requêtes de type "post" on peut recevoir plusieurs type de données comme du json ou des données passez par l'url (pour un formulaire par exemple), et dans ces 2 cas les données que nous recevont ne sont pas formater, on reçois des "string" ce qui complique le traitement des données... Pour éviter ça il existe le middlware "express.json()" pour les données json et "express.urlencoded()" pour les données passer via l'url (ex: name=Florian&password=Florian02+).
+
+    - express.json() = Pour les données de type "application/json".
+
+    - express.urlencoded() = Pour les données de type "application/x-www-form-urlencoded".
+*/
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.post("/singup", (req, res) => {
+    console.log(req.body);
+    res.json(req.body);
+})
 
 app.listen(3000);

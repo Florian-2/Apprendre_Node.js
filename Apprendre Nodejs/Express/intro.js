@@ -1,4 +1,7 @@
 /*
+    res et res c'est quoi ?
+        "req" représente la requête et "res" la réponse et ce sont des event emmiter, on peut donc utilisé le ".on()" et le ".emit()".
+
     - const app = express() 
         Appel une fonction nommé "createApplication()" qui est dans le fichier "node_modules\express\lib\express.js"
 
