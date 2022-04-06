@@ -94,7 +94,6 @@ app.use(express.static(path.join(__dirname, "public")));
     Pour les requêtes de type "post" on peut recevoir plusieurs type de données comme du json ou des données passez par l'url (pour un formulaire par exemple), et dans ces 2 cas les données que nous recevont ne sont pas formater, on reçois des "string" ce qui complique le traitement des données... Pour éviter ça il existe le middlware "express.json()" pour les données json et "express.urlencoded()" pour les données passer via l'url (ex: name=Florian&password=Florian02+).
 
     - express.json() = Pour les données de type "application/json".
-
     - express.urlencoded() = Pour les données de type "application/x-www-form-urlencoded".
 */
 app.use(express.urlencoded({ extended: true }));
