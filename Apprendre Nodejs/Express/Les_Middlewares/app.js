@@ -62,10 +62,10 @@ const isAuthenticated = (req, res, next) => {
     res.status(401).send("Utilisateur non authentifié");
 }
 
-// Ceci est un layer
+// Ceci est un layer de type middleware
 app.use(getCurrentUser, isAuthenticated);
 
-// Ceci est une route
+// Ceci est un layer de type route
 app.get('/me', (req, res) => {
     // console.log(req.me); // Florian
     res.json({ user: req.user });
