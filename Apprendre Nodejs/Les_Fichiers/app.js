@@ -122,7 +122,7 @@ fs.unlink('./docs.txt', (err) => {
 
 
 
-/* ------------------------ Créer un dossier ------------------------ 
+/* ------------------------ Copier le contenu d'un fichier  ------------------------ 
 
 fs.copyFile("./MonDossier/test.txt", "./MonDossier/test2.txt", (err) => {
     if (err) throw err;
@@ -195,7 +195,7 @@ fs.rmdir("./MonDossier/dossier2", (err) => {
 })
 */
 
-
+  
 
 
 
