@@ -32,20 +32,54 @@ const models = require("./model");
         - index : permet de définir un index MongoDB pour cette propriété.
         - unique : permet de définir un index unique MongoDB pour cette propriété.
 
+        Exemple:
+            const schema = mongoose.Schema({
+                test: {
+                    type: String,
+                    index: true,
+                    default: 'ma valeur par défaut'
+                },
+                test2: String,
+                test2: {
+                    type: String,
+                    validate: [isEmail, "email non valide"]
+                }
+            });
 
-    Exemple:
-        const schema = mongoose.Schema({
-            test: {
-                type: String,
-                index: true,
-                default: 'ma valeur par défaut'
-            },
-            test2: String,
-            test2: {
-                type: String,
-                validate: [isEmail, "email non valide"]
-            }
-        });
+
+    Les validateur natif dispo:
+        Les validateur sont des tableau qui prennent 2 valeur: valeur/condition et la phrase qui sera retourner si la validation échoue.
+
+        Validateut pour les String:
+            - minlength : Nombre de caractères minimal
+            - maxlength : Nombre de caractères maximal
+            - enum : La valeur du champ doit matché avec l'une des valeur du tableau enum
+            - match : Regex
+
+        Exemple:        
+            const schema = mongoose.Schema({
+                vehicle: {
+                    type: String,
+                    required: [true, "Le titre est requis"],
+                    minlength: [3, "3 caractères minimum"],
+                    maxlength: [50, "50 caractères maximum"],
+                    enum: ["voiture", "scooter"]
+                }
+            });
+
+    Les validateur personnalisé:
+        Les validateur doivent retourner un boolean, on peut lui donnée une fonction synchrone ou asynchrone. A savoir, il existent une fonction "validate()" qu'on peut utiliser sur les document et elle permet d'éxécuter les validateur du schéma.
+
+        Exemple:
+            const isEmail = (fieldValue) => /^\S+@\S+\.\S+$/.test(fieldValue);
+
+            const schema = mongoose.Schema({
+                phoneNumber: {
+                    type: Number,
+                    validate: [isEmail(value), "Email invalide"]
+                }
+            });
+
 
     Les index et les vituals
         Les index sont utile si on récupère un document très souvent via l'une des ces propriété, par exemple si on récupère un user via son email on peut mettre un index sur la champ "email" et de cette façon MongoDB sera en mesure de récupérer le document plus rapidement que sans l'index, A savoir, "_id" possèdent un index par défaut.

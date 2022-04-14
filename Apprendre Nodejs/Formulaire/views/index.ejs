@@ -1,12 +1,49 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
+    <title>Fomulaire Chapitre</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container-fluid">
+        <div class="d-flex flex-column align-items-center justify-content-center w-100" style="height:100vh;">
+
+            <h1>Chapter form</h1>
+
+            <!-- Formulaire 
+            
+                Envoyer par POST à l'adresse "/api/chapter"
+            -->
+            <form class="d-flex flex-column card w-50" method="post" action="/api/chapters">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input name="title" class="form-control" type="text" />
+
+                        <!-- Le 'locals' permet de vérifer que la variable 'errTitle' existe bien -->
+                        <% if (locals.errTitle) { %>
+                            <p class="text-danger"><%= errTitle %></p>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <label>nbOfLessons</label>
+                        <input name="nbOfLessons" class="form-control" type="number" />
+
+                        <% if (locals.errLessons) { %>
+                            <p class="text-danger"><%= errLessons %></p>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <input name="active" class="form-checkbox-control" type="checkbox" id="active" />
+                        <label class="form-check-label" for="active">active</label>
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
 </body>
 </html>
