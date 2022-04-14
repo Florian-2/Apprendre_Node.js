@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const collectionChapter = require("./model");
+const model = require("./model");
 
 /* Connexion à une base de données MongoDB 
 
@@ -15,9 +15,11 @@ mongoose.connect("mongodb://Florian:azerty@localhost:27017/dyma?authSource=admin
 .then(() => {
     console.log("Connexion établie !");
 
-    collectionChapter.find({}, (err, data) => {
-        if (err) throw err;
-        console.log(data);
+    model.Chapters.create({
+        title: "Les bases de mongoose",
+        nbOfLessons: 12,
+        active: true
     })
+
 })
 .catch((err) => console.log(err))
