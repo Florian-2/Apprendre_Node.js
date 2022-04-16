@@ -5,15 +5,23 @@
 const Chapter = require("../databases/models/chapter");
 const { createChapter, getChapters, getChapterById, deleteChapterById } = require("../queries/chapter.queries");
 
-exports.getAllChapters = async (req, res) => {
-    try {
-        const chapters = await getChapters();
-        res.render("index", { chapters });
-    } 
-    catch (error) {
-        console.log(error);
+// exports.getAllChapters = async (req, res) => {
+//     try {
+//         const chapters = await getChapters();
+//         res.render("index", { chapters });
+//     } 
+//     catch (error) {
+//         console.log(error);
         
-    }
+//     }
+// }
+exports.getAllChapters = (req, res) => 
+{
+    const myError = req.foo.email; // foo.email n'existe pas donc lève une erreur
+
+    getChapters().then((chapters) => {
+        res.render("index", { chapters });
+    })
 }
 
 exports.getOneChapter = async (req, res) => {
