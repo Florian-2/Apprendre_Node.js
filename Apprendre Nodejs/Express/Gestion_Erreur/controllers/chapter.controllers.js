@@ -1,7 +1,3 @@
-/*
-    Les fichiers controller sont là pour gérer la partie logique d'une route.
-*/
-
 const Chapter = require("../databases/models/chapter");
 const { createChapter, getChapters, getChapterById, deleteChapterById } = require("../queries/chapter.queries");
 
@@ -15,6 +11,7 @@ const { createChapter, getChapters, getChapterById, deleteChapterById } = requir
         
 //     }
 // }
+
 exports.getAllChapters = (req, res) => 
 {
     const myError = req.foo.email; // foo.email n'existe pas donc lève une erreur
