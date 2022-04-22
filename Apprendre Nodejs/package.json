@@ -20,9 +20,11 @@
   "homepage": "https://github.com/Florian-2/Apprendre_Node.js#readme",
   "dependencies": {
     "colors": "^1.4.0",
+    "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.0.2",
     "express": "^4.17.3",
+    "express-session": "^1.17.2",
     "mongoose": "^6.2.10",
     "pug": "^3.0.2"
   }
