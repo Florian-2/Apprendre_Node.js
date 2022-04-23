@@ -1,0 +1,11 @@
+Le Hashage c'est quoi ?
+
+    Le hashage consiste à transformer une chaîne de caractères en chaine de caractères qui ne ressemble plus du tout à celle d'origine via un alog (ex: azerty -> Hj89vhjkGCJ4%).
+
+    Il faut savoir qu'une chaine de caractères qu'on hash donnera toujours le même résultat (ex: "azerty" donnera toujours "Hj89vhjkGCJ4%"), et qu'il est impossible de passer de ce hash à la chaine de caractères d'origne.
+
+    Le salage ?
+        Quand une chaine de caractères est hasher, à l'intérieur de celui-ci il y à un morceau de chaine de caractères qui à été créer de manière aléatoire, et bcypt propose une fonction qui nous demande combien de fois veut t'on hasher ce morceau (généralement 10), de cette manier même si quelque récupère le hash complet il va lui falloir beaucoup plus de temps pour trouver une chaine de caractères qui match exactement avec le hash.
+
+    Comparer des mot de passe (connexion) ?
+        Lors de la connexion on va récupérer le mdp que l'utilisateur à écrit depuis le formulaire de connexion et on va le hasher (en prennent en compte le salage) puis comparer ce hash à celui de la base de donnée.
