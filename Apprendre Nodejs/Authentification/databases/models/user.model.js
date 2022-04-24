@@ -11,6 +11,7 @@ const userSchema = mongoose.Schema({
     timestamps: true 
 })
 
+// Méthode utilisable sur les models
 userSchema.statics.hashPassword = async (password) => {
     try {
         const salt = await bcrypt.genSalt(10);
@@ -20,7 +21,8 @@ userSchema.statics.hashPassword = async (password) => {
         throw e
     }
 }
-  
+
+// Méthode utilisable sur les documents
 userSchema.methods.comparePassword = function(password) {
     return bcrypt.compare(password, this.local.password);
 }

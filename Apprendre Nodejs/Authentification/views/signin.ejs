@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="height:100vh;">
+            <h1>Connexion</h1>
+
+            <div class="d-flex flex-row w-50">
+                <form method="post" action="/auth/signin" class="w-100">
+                    <div class="form-group">
+                        <label>email : </label>
+                        <input class="form-control" type="email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password : </label>
+                        <input class="form-control" type="password" name="password" autocomplete="on"/>
+                    </div>
+
+                    <% if (error) { %>
+                        <p class="error"><%= error %> </p>
+                    <% } %>
+
+                    <div>
+                        <button class="btn btn-primary">Connexion</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/index.js"></script>
+</body>
+</html>

@@ -6,7 +6,8 @@ router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
 
 router.get("/", (req, res) => {
-    res.render("index");
+    console.log(req.user);
+    res.render("index", { user: req.user ? req.user : null });
 })
 
 module.exports = router;

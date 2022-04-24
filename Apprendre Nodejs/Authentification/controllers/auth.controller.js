@@ -1,11 +1,14 @@
+const passport = require("passport");
+
 exports.sessionNew = (req, res, next) => {
-    res.end();
+    res.render("signin", { error: null });
 }
 
 exports.sessionCreate = (req, res, next) => {
-    res.end();
+    res.end()
 }
 
 exports.sessionDelete = (req, res, next) => {
-    res.end();
+    req.logout();
+    res.redirect("/auth/signin/form");
 }
