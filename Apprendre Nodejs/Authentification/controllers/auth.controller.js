@@ -10,5 +10,5 @@ exports.sessionCreate = (req, res, next) => {
 
 exports.sessionDelete = (req, res, next) => {
     req.logout();
-    res.redirect("/auth/signin/form");
+    res.redirect("/");
 }
