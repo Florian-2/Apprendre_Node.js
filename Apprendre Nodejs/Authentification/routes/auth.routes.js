@@ -30,6 +30,7 @@ router.post("/signin", (req, res, next) => {
         }
         // Dans le cas d'un "done(null, user);" donc si tout ces bien passé
         else {
+            // "login()" va faire appele à la méthode "serializeUser()" 
             req.login(user, (err) => {
                 if (err) 
                     next(err);

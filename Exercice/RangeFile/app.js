@@ -9,6 +9,7 @@ const DIRS = {
     ".py": "Programmation",
     ".c": "Programmation",
     ".txt": "Documents",
+    ".pdf": "Documents",
     ".mp3": "Musiques"
 }
 

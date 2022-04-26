@@ -9,3 +9,10 @@ Le Hashage c'est quoi ?
 
     Comparer des mot de passe (connexion) ?
         Lors de la connexion on va récupérer le mdp que l'utilisateur à écrit depuis le formulaire de connexion et on va le hasher (en prennent en compte le salage) puis comparer ce hash à celui de la base de donnée.
+
+
+Authentification Passport
+
+    Voir les fichiers:
+        - ./config/passport.config.js
+        - ./routes/auth.routes.js
