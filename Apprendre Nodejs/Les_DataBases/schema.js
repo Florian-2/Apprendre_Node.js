@@ -142,6 +142,7 @@ const models = require("./model");
         <schéma>.post("validate", function (doc, next) {
             console.log("Après la validation du document");
             console.log(doc);
+            next();
         })
 */
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multer</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label {
+            display: block;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <form action="/input-files-multiple" method="post" enctype="multipart/form-data">
+        <!-- <label for="avatar">Avatar</label>
+        <input type="file" name="avatar" id="avatar">
+        
+        <label>Carte d'identité</label>
+        <input type="file" name="idCard">
+        <input type="file" name="idCard"> -->
+
+        <input type="file" name="id" id="id-card" multiple>
+
+        <button type="submit">Envoyer</button>
+
+        <p class="error"></p>
+    </form>
+
+
+    
+    <script>
+        const input = document.getElementById("id-card");
+        const submit = document.querySelector("button");
+        const error = document.querySelector(".error");
+
+        const MIME = ["image/jpeg", "image/png", "text/plain"];
+
+        // input.addEventListener('change', (e) => {
+        //     let files = input.files;
+        //     console.log(input.files);
+
+        //     if (files.length > 2) {
+        //         error.textContent = "2 fichiers max !";
+        //         submit.disabled = true;
+        //     } 
+        //     else if (!MIME.includes(files[0].type)) {
+        //         error.textContent = "Seuls les fichiers du types 'png' et 'jpg' sont autorisés";
+        //         submit.disabled = true;
+        //     }
+        //     else {
+        //         error.textContent = "";
+        //         submit.disabled = false;
+        //     }
+        // });
+    </script>
+</body>
+</html>
