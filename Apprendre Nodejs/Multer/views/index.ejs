@@ -33,6 +33,13 @@
         <p class="error"></p>
     </form>
 
+    <% if (user) { %>
+        <div class="profile">
+            <img src="<%= user.avatarURL %> " alt="avatar">
+        </div>
+    <% } %>
+
+
 
     
     <script>
@@ -42,23 +49,24 @@
 
         const MIME = ["image/jpeg", "image/png", "text/plain"];
 
-        // input.addEventListener('change', (e) => {
-        //     let files = input.files;
-        //     console.log(input.files);
+        input.addEventListener('change', (e) => {
+            let files = input.files;
+            console.log(input.files);
 
-        //     if (files.length > 2) {
-        //         error.textContent = "2 fichiers max !";
-        //         submit.disabled = true;
-        //     } 
-        //     else if (!MIME.includes(files[0].type)) {
-        //         error.textContent = "Seuls les fichiers du types 'png' et 'jpg' sont autorisés";
-        //         submit.disabled = true;
-        //     }
-        //     else {
-        //         error.textContent = "";
-        //         submit.disabled = false;
-        //     }
-        // });
+            
+            // if (files.length > 2) {
+            //     error.textContent = "2 fichiers max !";
+            //     submit.disabled = true;
+            // } 
+            // else if (!MIME.includes(files[0].type)) {
+            //     error.textContent = "Seuls les fichiers du types 'png' et 'jpg' sont autorisés";
+            //     submit.disabled = true;
+            // }
+            // else {
+            //     error.textContent = "";
+            //     submit.disabled = false;
+            // }
+        });
     </script>
 </body>
 </html>
