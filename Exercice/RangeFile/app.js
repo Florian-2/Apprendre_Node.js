@@ -10,12 +10,13 @@ const DIRS = {
     ".c": "Programmation",
     ".txt": "Documents",
     ".pdf": "Documents",
-    ".mp3": "Musiques"
+    ".mp3": "Musiques",
+    "programmation": [".html", ".py", ".js"]
 }
 
 const folderPath = path.join(__dirname, "foo");
 
-async function separatesFiles(contentFolder) 
+async function getFilesInFolder(contentFolder) 
 {
     const files = [];
 
@@ -43,7 +44,7 @@ async function organizeFiles()
 {
     try {
         const contentFolder = await fs.readdir(folderPath);
-        const files = await separatesFiles(contentFolder);
+        const files = await getFilesInFolder(contentFolder);
 
         for (const file of files) 
         {

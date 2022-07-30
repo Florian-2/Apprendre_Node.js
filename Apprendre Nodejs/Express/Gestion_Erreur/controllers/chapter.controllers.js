@@ -8,7 +8,7 @@ exports.getAllChapters = async (req, res, next) => {
         res.render("index", { chapters });
     } 
     catch (error) {
-        next(error); // Est envoyer dans la stack d'erreur et passe dans le middleware d'erreur qu'on à créer dans la page "app.js"
+        next(error); // Est envoyer dans la stack d'erreur et passe dans le middleware d'erreur qu'on à créer dans la page "app.js", il on ne créer par notre propre middleware d'érreur il utilisera celui par défaut fourni par express
     }
 }
 

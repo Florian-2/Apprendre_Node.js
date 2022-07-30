@@ -48,6 +48,31 @@ const Users = require("./database/model/user.model");
 
         - .fields(<array>) = Cette méthode prend un tableau avec des objet qui peuvent avoir une clé "name" qui fait référence au nom du champs HTML et une clé "maxCount" qui dit combien de fichier max le serveur peut traiter pour ce champ là.
       
+
+    Gestion des erreurs:
+        Les erreurs possible 
+            'LIMIT_PART_COUNT': 'Too many parts'
+            'LIMIT_FILE_SIZE': 'File too large'
+            'LIMIT_FILE_COUNT': 'Too many files'
+            'LIMIT_FIELD_KEY': 'Field name too long'
+            'LIMIT_FIELD_VALUE': 'Field value too long'
+            'LIMIT_FIELD_COUNT': 'Too many fields'
+            'LIMIT_UNEXPECTED_FILE': 'Unexpected field'
+
+        Ici upload() est dans un middleware ce qui nous permet de lui passer une fonction de callback de gestion d'erreur.
+
+        app.post('/profile', (req, res, next) => {
+            upload(req, res, (err) => {
+                if (err instanceof multer.MulterError) {
+                    if (err.code === 'LIMIT_FILE_SIZE') {
+                        res.json({ err: 'Le fichier est trop volumineux, la taille est limitée à 1 Mo' });
+                    }
+                } 
+                else if (err) {
+                    next(e); 
+                }
+            })
+        })
 */
 const multer = require("multer");
 

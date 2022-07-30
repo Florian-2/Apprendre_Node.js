@@ -7,13 +7,11 @@
     <title>API Node.js</title>
 </head>
 <body>
-    <script>
-        async function fetchData() {
-            const response = await fetch("http://localhost:3000/me");
-            const data = await response.json();
-            console.log(data);
-        }
-        fetchData();
-    </script>
+<form action="http://localhost:3000/file" method="post" enctype="multipart/form-data">
+    <input type="file" name="avatar">
+
+    <button type="submit">envoyer</button>
+</form>
+
 </body>
 </html>
